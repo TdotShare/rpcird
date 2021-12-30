@@ -42,9 +42,46 @@ $breadcrumb = [
 
 @endif
 
+
+<div class="card shadow p-3">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Question name</th>
+                        <th scope="col">Keyword</th>
+                        <th scope="col">Answer Count</th>
+                        <th scope="col">Date Posted</th>
+                        <th scope="col">Tracking Status</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ([] as $index => $item )
+                    <tr>
+
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 
 @section('script_footer')
+
+<script>
+    $(function () {
+      $("#dataTable").DataTable({
+        "responsive": true,
+      });
+    });
+</script>
 
 @endsection

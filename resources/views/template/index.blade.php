@@ -109,7 +109,7 @@
       <div class="float-right d-none d-sm-block">
         <b>Version</b> 1.0.0 - 01/2022
       </div>
-      <strong>Copyright &copy; <a href="https://ird.rmuti.ac.th/main/"> สถาบันวิจัยและพัฒนา 2021  </a></strong>
+      <strong>Copyright &copy; <a href="https://ird.rmuti.ac.th/main/"> สถาบันวิจัยและพัฒนา 2022  </a></strong>
     </footer>
 
     <!-- Control Sidebar -->

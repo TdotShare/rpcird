@@ -3,42 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Account;
-use App\Model\Researcher;
 
-class AuthenticationController extends Controller
+class DashboardController extends Controller
 {
 
-    public function actionHomeLogin()
+    public function actionIndex()
     {
-        return view("auth.login");
-    }
-
-    public function actionHomeRMUTILogin()
-    {
-        session(['auth' => true]);
-        session(['id' => 1]);
-        session(['username' => "jirayu.co"]);
-        session(['fullname' => "jirayu chiaowet"]);
-        session(['role' => "admin"]);
-        session(['rmutilogin' => true]);
-
-        if(session('role') == 'admin'){
-
-            return redirect()->route("dashboard_index_page");
-
-        }else{
-
-            return redirect()->route("topic_index_page");
-
-        }
-
-    }
-
-    public function actionLogout()
-    {
-        session()->forget(['auth' , 'id' , 'username' , 'fullname' , 'role']);
-        return redirect()->route("login_page"); 
+        return view("screen.admin.dashboard.index");
     }
 
     protected function responseRedirectBack($message, $status = "success", $alert = true)

@@ -34,9 +34,9 @@ Route::group(['prefix' => '/topic', 'middleware' => [] ], function () {
         สร้างข้อมูลหัวข้อคำถาม
     */
     Route::get('/', "TopicController@actionIndex")->name('topic_index_page'); // เรียกรายการหัวข้อที่ตั้งมีอะไรบ้าง
-    Route::get('/{id}', "TopicController@actionView")->name('topic_view_page'); // ดูคำถาม + มีคำตอบอะไรบ้าง
-    
     Route::get('/create', "TopicController@actionCreate")->name('topic_create_page'); // เข้าหน้าต่างสร้างคำถาม
+
+    Route::get('/{id}', "TopicController@actionView")->name('topic_view_page'); // ดูคำถาม + มีคำตอบอะไรบ้าง
     Route::post('/create', "TopicController@actionCreate")->name('topic_create_data');
     Route::get('/delete/{id}', "TopicController@actionDelete")->name('topic_delete_data');
 });
@@ -49,6 +49,12 @@ Route::group(['prefix' => '/answer', 'middleware' => [] ], function () {
 
     Route::post('/create', "AnswerController@actionCreate")->name('answer_create_data');
     Route::get('/delete/{id}', "AnswerController@actionDelete")->name('answer_delete_data');
+});
+
+Route::group(['prefix' =>  $backend . '/dashboard', 'middleware' => [] ], function () {
+
+    Route::get('/', "DashboardController@actionIndex")->name('dashboard_index_page');
+
 });
 
 

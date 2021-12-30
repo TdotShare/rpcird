@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Account;
-use App\Model\Researcher;
 
 class AccountController extends Controller
 {

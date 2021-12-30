@@ -11,7 +11,27 @@ class TopicController extends Controller
 
     public function actionIndex()
     {
-        return view("screen.topic.index");
+        $model = [];
+        return view("screen.topic.index" , ["model" => $model]);
+    }
+
+    public function actionCreate(Request $request)
+    {
+        if($request->isMethod('get')){
+            return view("screen.topic.create");
+        }
+
+
+        //return $request->all();
+
+
+        return $this->responseRedirectRoute("topic_index_page" , "create question success !");
+    }
+
+
+    public function actionView($id)
+    {
+        # code...
     }
 
     protected function responseRedirectBack($message, $status = "success", $alert = true)

@@ -7,6 +7,7 @@ $menuUser = [
 ];
 
 $menuAdmin = [
+    ["name" => "Dashboard", "menu" => null , "url" => route("dashboard_index_page") , "icon" => "fas fa-th" , "path" => "/admin/dashboard"] ,
     ["name" => "Question", "menu" => null , "url" => route("question_index_page") , "icon" => "fas fa-question-circle" , "path" => "/admin/question"] ,
     ["name" => "Account", "menu" => null , "url" => route("account_index_page") , "icon" => "fas fa-users" , "path" => "/admin/account"] ,
     ["name" => "Graph", "menu" => null , "url" => route("graph_index_page") , "icon" => "fas fa-users" , "path" => "/admin/graph"] ,
@@ -21,7 +22,7 @@ $menuAdmin = [
             <img src={{URL::asset("assets/image/mock/profile.png")}} class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">{{  session("fullname") }}</a>
+            <a href="#" class="d-block">{{ session("fullname") }}</a>
         </div>
     </div>
 
