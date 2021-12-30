@@ -7,7 +7,7 @@
   <title>RPCIRD IRD</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="{{URL::asset("assets/images/logo/irdrmuti_thmb.gif")}}" type="image/gif" sizes="16x16">
+  <link rel="icon" href="{{URL::asset("assets/logo/irdrmuti_thmb.gif")}}" type="image/gif" sizes="16x16">
   <!-- Font Awesome -->
   <link rel="stylesheet" href={{URL::asset("template/plugins/fontawesome-free/css/all.min.css")}}>
   <!-- Ionicons -->

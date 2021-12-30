@@ -20,10 +20,16 @@ class AuthenticationController extends Controller
         session(['id' => 1]);
         session(['username' => "jirayu.co"]);
         session(['fullname' => "jirayu chiaowet"]);
-        session(['role' => 1]);
+        session(['role' => "admin"]);
         session(['rmutilogin' => true]);
 
         return redirect()->route("topic_index_page");
+    }
+
+    public function actionLogout()
+    {
+        session()->forget(['auth' , 'id' , 'username' , 'fullname' , 'role']);
+        return redirect()->route("login_page"); 
     }
 
     protected function responseRedirectBack($message, $status = "success", $alert = true)

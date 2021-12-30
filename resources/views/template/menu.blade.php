@@ -3,13 +3,13 @@
 //  ["name" => "จองห้องประชุม", "menu" => null , "url" => route("reserveroom_index_page") , "icon" => "fas fa-door-closed" , "path" => "/reserveroom"] ,
 
 $menuUser = [
-    ["name" => "ยื่นข้อเสนอโครงการ", "menu" => null , "url" => route("suggestion_index_page") , "icon" => "fas fa-users" , "path" => "/suggestion"] ,
+    ["name" => "Question To Me", "menu" => null , "url" => route("topic_index_page") , "icon" => "fas fa-question-circle" , "path" => "/topic"] ,
 ];
 
 $menuAdmin = [
-    ["name" => "question", "menu" => null , "url" => "#" , "icon" => "fas fa-question-circle" , "path" => "/admin/topic"] ,
-    ["name" => "account", "menu" => null , "url" => "#" , "icon" => "fas fa-users" , "path" => "/admin/account"] ,
-    ["name" => "graph", "menu" => null , "url" => "#" , "icon" => "fas fa-users" , "path" => "/admin/graph"] ,
+    ["name" => "Question", "menu" => null , "url" => route("question_index_page") , "icon" => "fas fa-question-circle" , "path" => "/admin/question"] ,
+    ["name" => "Account", "menu" => null , "url" => route("account_index_page") , "icon" => "fas fa-users" , "path" => "/admin/account"] ,
+    ["name" => "Graph", "menu" => null , "url" => route("graph_index_page") , "icon" => "fas fa-users" , "path" => "/admin/graph"] ,
 ];
 
 ?>

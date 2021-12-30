@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use App\Model\Account;
 use App\Model\Researcher;
 
-class TopicController extends Controller
+class GraphController extends Controller
 {
 
     public function actionIndex()
     {
-        return view("screen.topic.index");
+        return view("screen.admin.graph.index");
     }
 
     protected function responseRedirectBack($message, $status = "success", $alert = true)

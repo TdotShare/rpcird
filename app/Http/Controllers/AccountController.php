@@ -9,6 +9,11 @@ use App\Model\Researcher;
 class AccountController extends Controller
 {
 
+    public function actionIndex()
+    {
+        return view("screen.admin.account.index");
+    }
+
     protected function responseRedirectBack($message, $status = "success", $alert = true)
     {
         //primary , success , danger , warning
