@@ -42,6 +42,12 @@ $breadcrumb = [
 
 @endif
 
+
+<div class="alert alert-success" role="alert">
+    In development , available soon
+</div>
+
+
 @endsection
 
 

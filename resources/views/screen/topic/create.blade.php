@@ -7,7 +7,15 @@ $breadcrumb = [
     [ "name" => "Main Page" , "url" => route("topic_index_page") ],
     [ "name" => "Question To Me" , "url" => route("topic_index_page") ],
     [ "name" => "Create" , "url" => null ],
-]
+];
+
+
+$keywordItem = [
+    "Research Advisory",
+    "Publication Proofreading",
+    "Paper Presentation"
+];
+
 
 ?>
 
@@ -61,9 +69,9 @@ $breadcrumb = [
                     <label >Key Word</label>
                     <select class="custom-select" name="keyword" required >
                         <option value="" selected>Choose Key Word</option>
-                        <option value="1">Research Advisory</option>
-                        <option value="2">Publication Proofreading</option>
-                        <option value="3">Paper Presentation</option>
+                        <option value="1" >Research Advisory</option>
+                        <option value="2" >Publication Proofreading</option>
+                        <option value="3" >Paper Presentation</option>
                       </select>
                 </div>
             </div>
@@ -83,7 +91,7 @@ $breadcrumb = [
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-clock"></i></span>
                         </div>
-                        <input type="text" name="start_deadline" class="form-control" id="res_start" required>
+                        <input type="text" name="date_start" class="form-control" id="res_start" required>
                     </div>
                 </div>
                 <div class="form-group col-md-6">
@@ -92,7 +100,7 @@ $breadcrumb = [
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-clock"></i></span>
                         </div>
-                        <input type="text" name="end_deadline" class="form-control" id="res_end" required>
+                        <input type="text" name="date_end" class="form-control" id="res_end" required>
                     </div>
                 </div>
             </div>

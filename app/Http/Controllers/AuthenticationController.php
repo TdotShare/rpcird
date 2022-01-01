@@ -20,6 +20,8 @@ class AuthenticationController extends Controller
         session(['id' => 1]);
         session(['username' => "jirayu.co"]);
         session(['fullname' => "jirayu chiaowet"]);
+        session(['card_id' => "1309901343190"]);
+        session(['email' => "jirayu.co@rmuti.ac.th"]);
         session(['role' => "admin"]);
         session(['rmutilogin' => true]);
 

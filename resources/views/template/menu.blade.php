@@ -4,15 +4,16 @@
 
 $menuUser = [
     ["name" => "Question To Me", "menu" => null , "url" => route("topic_index_page") , "icon" => "fas fa-question-circle" , "path" => "/topic"] ,
+    ["name" => "Relations", "menu" => null , "url" => route("relations_index_page") , "icon" => "fas fa-bullhorn" , "path" => "/relations"] ,
 ];
 
 $menuAdmin = [
     ["name" => "Dashboard", "menu" => null , "url" => route("dashboard_index_page") , "icon" => "fas fa-th" , "path" => "/admin/dashboard"] ,
     ["name" => "Question", "menu" => null , "url" => route("question_index_page") , "icon" => "fas fa-question-circle" , "path" => "/admin/question"] ,
     ["name" => "Account", "menu" => null , "url" => route("account_index_page") , "icon" => "fas fa-users" , "path" => "/admin/account"] ,
-    ["name" => "Graph", "menu" => null , "url" => route("graph_index_page") , "icon" => "fas fa-users" , "path" => "/admin/graph"] ,
+    ["name" => "Tracking Text", "menu" => null , "url" => route("tracking_index_page") , "icon" => "fas fa-tags" , "path" => "/admin/tracking"] ,
+    ["name" => "Graph", "menu" => null , "url" => route("graph_index_page") , "icon" => "fas fa-chart-pie" , "path" => "/admin/graph"] ,
 ];
-
 ?>
 
 <div class="sidebar">

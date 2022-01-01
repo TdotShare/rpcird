@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Account;
-use App\Model\Researcher;
+use App\Model\Topic;
 
 class QuestionController extends Controller
 {
 
     public function actionIndex()
     {
-        return view("screen.admin.topic.index");
+        $model = Topic::all();
+        return view("screen.admin.topic.index" , ["model" => $model]);
     }
 
     protected function responseRedirectBack($message, $status = "success", $alert = true)

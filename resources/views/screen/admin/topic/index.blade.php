@@ -6,7 +6,15 @@
 $breadcrumb = [ 
     [ "name" => "Main Page" , "url" => route("topic_index_page") ],
     [ "name" => "Question" , "url" => null ],
-]
+];
+
+
+$keywordItem = [
+    "Research Advisory",
+    "Publication Proofreading",
+    "Paper Presentation"
+];
+
 
 ?>
 
@@ -57,12 +65,21 @@ $breadcrumb = [
                         <th scope="col">Tracking Status</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ([] as $index => $item )
+                    @foreach ($model as $index => $item )
                     <tr>
-
+                        <td>{{$index + 1}}</td>
+                        <td><a href={{route("topic_view_page" , ["id" => $item->id])}}>{{$item->name}}</a></td>
+                        <td>{{$keywordItem[$item->keyword - 1]}}</td>
+                        <td>{{ App\Model\Answer::where('topic_id' , '=' , $item->id)->count() }}</td>
+                        <td>{{$item->create_by}}</td>
+                        <td>0</td>
+                        <td><a href={{route("topic_view_page" , ["id" => $item->id])}}><button class="btn btn-block btn-primary"><i class="fas fa-eye"></i> View</button></a></td>
+                        <td><a href={{route("topic_track_page" , ["id" => $item->id])}}> <button class="btn btn-block btn-primary"><i class="fas fa-tags"></i> Tracking</button></a></td>
+                        <td><a onclick="return confirm('delete confirm ?');" href={{route("topic_delete_data" , ["id" => $item->id])}}><button class="btn btn-block btn-danger"><i class="fas fa-trash-alt"></i> Delete</button></a></td>
                     </tr>
                     @endforeach
                 </tbody>
