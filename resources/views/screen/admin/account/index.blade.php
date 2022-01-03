@@ -51,17 +51,23 @@ $breadcrumb = [
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">email</th>
-                        <th scope="col">fullname</th>
+                        <th scope="col">fullname_th</th>
+                        <th scope="col">fullname_en</th>
                         <th scope="col">department</th>
                         <th scope="col">faculty</th>
                         <th scope="col">campus</th>
-                        <th scope="col">list question</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ([] as $index => $item )
+                    @foreach ($model as $index => $item )
                     <tr>
-
+                        <td>{{$index + 1}}</td>
+                        <td>{{$item->email}}</td>
+                        <td>{{$item->firstname_th}} {{$item->lastname_th}}</td>
+                        <td>{{$item->firstname_en}} {{$item->lastname_en}}</td>
+                        <td>{{$item->department}}</td>
+                        <td>{{$item->faculty}}</td>
+                        <td>{{$item->campus}}</td>
                     </tr>
                     @endforeach
                 </tbody>

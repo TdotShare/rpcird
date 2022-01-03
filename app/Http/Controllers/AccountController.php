@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Account;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -9,7 +10,8 @@ class AccountController extends Controller
 
     public function actionIndex()
     {
-        return view("screen.admin.account.index");
+        $model = Account::all();
+        return view("screen.admin.account.index" , ["model" => $model]);
     }
 
     protected function responseRedirectBack($message, $status = "success", $alert = true)

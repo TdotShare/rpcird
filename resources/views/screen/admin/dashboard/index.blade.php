@@ -47,7 +47,7 @@ $breadcrumb = [
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
-            <h3>0 <sup style="font-size: 20px">Question</sup></h3>
+            <h3>{{ App\Model\Topic::count() }} <sup style="font-size: 20px">Question</sup></h3>
 
             <p>question all</p>
           </div>
@@ -61,8 +61,7 @@ $breadcrumb = [
         <!-- small box -->
         <div class="small-box bg-warning">
           <div class="inner">
-            <h3>0 <sup style="font-size: 20px">Unanswered</sup></h3>
-
+            <h3>{{ App\Model\Topic::where('progress' , '=' , '0')->count() }} <sup style="font-size: 20px">Unanswered</sup></h3>
             <p>Unanswered question  all</p>
           </div>
           <div class="icon">
@@ -70,6 +69,28 @@ $breadcrumb = [
           </div>
         </div>
       </div>
+</div>
+
+<hr>
+
+<div class="row">
+  @foreach ($trackdata as $item)
+
+  <div class="col-lg-3 col-6">
+    <div class="small-box bg-success">
+      <div class="inner">
+        <h3>{{ App\Model\Topic::where('progress' , '=' , $item->id)->count() }} <sup style="font-size: 20px">Question</sup></h3>
+
+        <p>{{$item->name_en}}</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-question"></i>
+      </div>
+    </div>
+  </div>
+      
+  @endforeach
+
 </div>
 
 

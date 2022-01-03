@@ -29,7 +29,7 @@ Route::group(['prefix' =>  '/auth'], function () {
 });
 
 
-Route::group(['prefix' => '/topic', 'middleware' => [] ], function () {
+Route::group(['prefix' => '/topic', 'middleware' => ['guest'] ], function () {
 
     /*
         สร้างข้อมูลหัวข้อคำถาม
@@ -47,13 +47,13 @@ Route::group(['prefix' => '/topic', 'middleware' => [] ], function () {
 });
 
 
-Route::group(['prefix' => '/relations', 'middleware' => [] ], function () {
+Route::group(['prefix' => '/relations', 'middleware' => ['guest'] ], function () {
     Route::get('/', function () {
         return redirect('https://rmutiresearch.blogspot.com/');
     })->name('relations_index_page');
 });
 
-Route::group(['prefix' => '/answer', 'middleware' => [] ], function () {
+Route::group(['prefix' => '/answer', 'middleware' => ['guest'] ], function () {
 
     /*
         สร้างข้อมูลการตอบคำถามในหัวข้อ ( answer )
@@ -63,14 +63,14 @@ Route::group(['prefix' => '/answer', 'middleware' => [] ], function () {
     Route::get('/delete/{id}', "AnswerController@actionDelete")->name('answer_delete_data');
 });
 
-Route::group(['prefix' =>  $backend . '/dashboard', 'middleware' => [] ], function () {
+Route::group(['prefix' =>  $backend . '/dashboard', 'middleware' => ['guest'] ], function () {
 
     Route::get('/', "DashboardController@actionIndex")->name('dashboard_index_page');
 
 });
 
 
-Route::group(['prefix' =>  $backend . '/question', 'middleware' => [] ], function () {
+Route::group(['prefix' =>  $backend . '/question', 'middleware' => ['guest' , 'admin'] ], function () {
 
     /*
         ดูข้อมูลหัวข้อคำถาม (admin)
@@ -81,7 +81,7 @@ Route::group(['prefix' =>  $backend . '/question', 'middleware' => [] ], functio
 
 });
 
-Route::group(['prefix' =>  $backend . '/account', 'middleware' => [] ], function () {
+Route::group(['prefix' =>  $backend . '/account', 'middleware' => ['guest' , 'admin'] ], function () {
 
     /*
         ดูข้อมูลหัวข้อคำถาม (admin)
@@ -91,7 +91,7 @@ Route::group(['prefix' =>  $backend . '/account', 'middleware' => [] ], function
 
 });
 
-Route::group(['prefix' =>  $backend . '/graph', 'middleware' => [] ], function () {
+Route::group(['prefix' =>  $backend . '/graph', 'middleware' => ['guest' , 'admin'] ], function () {
 
     /*
         graph
@@ -102,7 +102,7 @@ Route::group(['prefix' =>  $backend . '/graph', 'middleware' => [] ], function (
 });
 
 
-Route::group(['prefix' =>  $backend . '/tracking', 'middleware' => [] ], function () {
+Route::group(['prefix' =>  $backend . '/tracking', 'middleware' => ['guest' , 'admin'] ], function () {
 
     /*
         tracking

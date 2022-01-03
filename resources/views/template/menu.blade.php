@@ -4,7 +4,6 @@
 
 $menuUser = [
     ["name" => "Question To Me", "menu" => null , "url" => route("topic_index_page") , "icon" => "fas fa-question-circle" , "path" => "/topic"] ,
-    ["name" => "Relations", "menu" => null , "url" => route("relations_index_page") , "icon" => "fas fa-bullhorn" , "path" => "/relations"] ,
 ];
 
 $menuAdmin = [
@@ -34,11 +33,11 @@ $menuAdmin = [
              with font-awesome or any other icon font library -->
 
             {{-- <li class="nav-item">
-                <a href={{route("dashboard_index_page")}}
-                    class="{{ Request::path() == "dashboard" ? "nav-link active" : "nav-link"  }}">
-                    <i class="nav-icon fas fa-th"></i>
+                <a href={{route("relations_index_page")}}
+                    class="{{ Request::path() == "relations" ? "nav-link active" : "nav-link"  }}">
+                    <i class="nav-icon fas fa-bullhorn"></i>
                     <p>
-                        ภาพรวมระบบ
+                        Relations
                     </p>
                 </a>
             </li> --}}
@@ -117,6 +116,28 @@ $menuAdmin = [
             @endif
 
             @endforeach
+
+
+            <li class="nav-item">
+                <a target="_blank" href={{route("relations_index_page")}}
+                    class="{{ Request::path() == "relations" ? "nav-link active" : "nav-link"  }}">
+                    <i class="nav-icon fas fa-bullhorn"></i>
+                    <p>
+                        Relations
+                    </p>
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a href={{route("logout_data")}} class="{{ Request::path() == "logout" ? "nav-link active" : "nav-link"  }}">
+                    <i class="nav-icon fas fa-sign-out-alt"></i>
+                    <p>
+                        Logout
+                    </p>
+                </a>
+            </li>
+
 
 
             @if (session("role") == "admin")

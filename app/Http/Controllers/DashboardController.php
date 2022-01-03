@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Tracking;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -9,7 +10,13 @@ class DashboardController extends Controller
 
     public function actionIndex()
     {
-        return view("screen.admin.dashboard.index");
+        try {
+            $trackdata = Tracking::all();
+            return view("screen.admin.dashboard.index" , ['trackdata' => $trackdata]);
+        } catch (\PDOException $th) {
+            return $th->getMessage();
+        }
+       
     }
 
     protected function responseRedirectBack($message, $status = "success", $alert = true)

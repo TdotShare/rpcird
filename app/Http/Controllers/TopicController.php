@@ -24,7 +24,13 @@ class TopicController extends Controller
         if($model){
 
             if(session('role') != "admin"){
+
                 if($model->create_by != session('username')){
+                    return $this->responseRedirectBack("delete [ id : $id ] question failed !", 'warning');
+                }
+
+                $ansdata = Answer::where("topic_id" , '=' , $model->id)->count();
+                if($ansdata != 0){
                     return $this->responseRedirectBack("delete [ id : $id ] question failed !", 'warning');
                 }
             }
