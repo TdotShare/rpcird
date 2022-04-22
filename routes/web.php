@@ -64,9 +64,7 @@ Route::group(['prefix' => '/answer', 'middleware' => ['guest'] ], function () {
 });
 
 Route::group(['prefix' =>  $backend . '/dashboard', 'middleware' => ['guest'] ], function () {
-
     Route::get('/', "DashboardController@actionIndex")->name('dashboard_index_page');
-
 });
 
 
