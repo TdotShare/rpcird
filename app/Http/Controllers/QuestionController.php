@@ -10,7 +10,7 @@ class QuestionController extends Controller
 
     public function actionIndex()
     {
-        $model = Topic::all();
+        $model = Topic::orderBy('id', 'DESC')->get();
         return view("screen.admin.topic.index" , ["model" => $model]);
     }
 

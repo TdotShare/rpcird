@@ -43,7 +43,7 @@
 
         @endif
 
-        <a href="{{route("login_rmuti_page")}}"><button  class="btn btn-warning btn-block"> <i class="fas fa-university"></i> Login With RMUTI</button></a>
+        <a href="{{route("login_data_test")}}"><button  class="btn btn-warning btn-block"> <i class="fas fa-university"></i> Login With RMUTI</button></a>
 
       </div>
       <!-- /.login-card-body -->

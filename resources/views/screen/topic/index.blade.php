@@ -63,6 +63,17 @@ $keywordItem = [
     </div>
 </div>
 
+<div style="padding-block: 1%;"></div>
+
+<div class="row">
+    <div class="col-md">
+        <div class="alert alert-primary" role="alert">
+            หากยังไม่ได้รับไฟล์ หรือ ไฟล์ไม่ถูกต้องไม่สามารถเปิดได้ กรุณาติดต่อ 044-233000 ต่อ 2535 <br>
+            หากขึ้นสถานะ Completed และยังไม่มีคำตอบในกระทู้ที่ตั้งคำถามของคุณ กรุณาตรวจสอบ email rmuti ของคุณ  
+          </div>
+    </div>
+</div>
+
 
 <div style="padding-block: 1%;"></div>
 

@@ -94,7 +94,7 @@ $admin = ['jirayu.co'];
                 </div>
 
                 @if ($item->file)
-                <p>Attached File : <a href={{ url("upload/$model->code/$item->file") }} target="_blank">{{$model->file}}</a></p>
+                <p>Attached File : <a href={{ url("upload/$model->code/$item->file") }} target="_blank">{{$item->file}}</a></p>
                 @endif
 
                 <p>Name of Respondent (ชื่อผู้ตอบ) : {{ $item->user_by}}</p>

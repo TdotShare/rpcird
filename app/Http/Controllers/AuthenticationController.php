@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
-use App\Model\Account;
+use Phattarachai\LineNotify\Facade\Line;
 
 class AuthenticationController extends Controller
 {
@@ -29,6 +30,30 @@ class AuthenticationController extends Controller
         }
     }
 
+    public function actionLoginTest()
+    {
+
+        $model = Account::where('uid', '=', 'jirayu.co')->first();
+
+        if ($model) {
+
+            session(['auth' => true]);
+            session(['username' => $model->uid]);
+            session(['card_id' => $model->card_id]);
+            session(['fullname' => $model->firstname_th . " " . $model->lastname_th]);
+            session(['email' => $model->email]);
+            session(['role' => "admin"]);
+            session(['rmutilogin' => true]);
+
+            // จากใน Controller หรือที่อื่น ๆ
+            Line::send('ทดสอบส่งข้อความ');
+
+            return redirect()->route("dashboard_index_page");
+        } else {
+            return "error test";
+        }
+    }
+
     public function actionLoginRmuti(Request $request)
     {
         if (isset($_COOKIE['OAUTH2_login_info'])) {
@@ -42,6 +67,7 @@ class AuthenticationController extends Controller
 
             $admin = [
                 "jirayu.co",
+                "martha.er",
             ];
 
             try {
@@ -64,7 +90,6 @@ class AuthenticationController extends Controller
                     $model->campus = isset($data->campus) ? $data->campus : "";
                     $model->email = isset($data->mail) ? $data->mail : "";
                     $model->save();
-                    
                 }
 
                 if (in_array($data->uid, $admin)) {
@@ -79,7 +104,6 @@ class AuthenticationController extends Controller
                     session(['rmutilogin' => true]);
 
                     return redirect()->route("dashboard_index_page");
-                    
                 } else {
 
 
@@ -94,11 +118,9 @@ class AuthenticationController extends Controller
 
                     return redirect()->route("topic_index_page");
                 }
-
             } catch (\PDOException $th) {
-               return $this->responseRedirectRoute("login_page" , $th->getMessage() , "danger");
+                return $this->responseRedirectRoute("login_page", "error login", "danger");
             }
-
         } else {
 
             header("location: " . "https://mis-ird.rmuti.ac.th/sso/auth/login?url=" . route("login_rmuti_data"));
@@ -106,38 +128,15 @@ class AuthenticationController extends Controller
         }
     }
 
-    // public function actionHomeRMUTILogin()
-    // {
-    //     session(['auth' => true]);
-    //     session(['username' => "jirayu.co"]);
-    //     session(['fullname' => "jirayu chiaowet"]);
-    //     session(['card_id' => "1309901343190"]);
-    //     session(['email' => "jirayu.co@rmuti.ac.th"]);
-    //     session(['role' => "admin"]);
-    //     session(['rmutilogin' => true]);
-
-    //     if(session('role') == 'admin'){
-
-    //         return redirect()->route("dashboard_index_page");
-
-    //     }else{
-
-    //         return redirect()->route("topic_index_page");
-
-    //     }
-    // }
-
     public function actionLogout()
     {
-        session()->forget(['auth' , 'id' , 'username' , 'fullname', 'role']);
+        session()->forget(['auth', 'id', 'username', 'fullname', 'role']);
 
-        if(session("rmutilogin")){
+        if (session("rmutilogin")) {
 
             session()->forget('rmutilogin');
-            
-            return redirect('https://mis-ird.rmuti.ac.th/sso/auth/logout?url=' . route("login_page"));
 
-        }else{
+            return redirect('https://mis-ird.rmuti.ac.th/sso/auth/logout?url=' . route("login_page"));
             return redirect()->route("login_page");
         }
     }
