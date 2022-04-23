@@ -137,6 +137,7 @@ class AuthenticationController extends Controller
             session()->forget('rmutilogin');
 
             return redirect('https://mis-ird.rmuti.ac.th/sso/auth/logout?url=' . route("login_page"));
+        } else {
             return redirect()->route("login_page");
         }
     }
